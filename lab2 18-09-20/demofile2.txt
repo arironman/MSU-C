@@ -1,0 +1,413 @@
+
+// 1. Write a c program to check palindrome number. 
+
+#include <stdio.h>
+int main() {
+    int num;
+    printf("Enter an Number: ");
+    scanf("%d", &num);
+    int temp = num;
+
+    
+    int rev = 0, rem;
+    while (temp != 0) {
+        rem = temp % 10;
+        rev = rev * 10 + rem;
+        temp /= 10;
+    }
+
+    if (num == rev)
+        printf("%d is a palindrome.", num);
+    else
+        printf("%d is not a palindrome.", num);
+
+    return 0;
+}----------------------------------------
+ 
+ 
+ 
+// 2. Write a program to print the multiplication table of any user input number. 
+
+#include<stdio.h>
+
+void main(){
+    int Number;
+    printf("Enter a Number to get Multiplication table: ");
+    scanf("%d", &Number);
+    printf("Multiplication table of the %d is: ", Number);
+    int i = 1;
+    while (i<11){
+        printf("\n %d x %d = %d", Number, i, Number*i);
+        i++;
+    }
+    getchar();
+}----------------------------------------
+ 
+ 
+ 
+// 3. Write a program in C to find the sum of all elements of the array.
+
+#include<stdio.h>
+
+int addArray(int arr[], int size){
+    int result = 0;
+    for (int i = 0; i < size; i++)
+    {
+        result += arr[i];
+    }
+    return result;
+}
+
+
+void main(){
+    int size;
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+    int arr[size];
+    printf("Enter the Elements of Array: ");
+    for (int i = 0; i < size; i++)
+    {
+        printf("\nEnter the %d Element of Array: ", i);
+        scanf("%d", &arr[i]);
+    }
+
+    int result = addArray(arr, size);
+    printf("Sum of the Array is %d.", result);
+}----------------------------------------
+ 
+ 
+ 
+//  4. Write a program in C to print all unique elements in an array
+
+#include<stdio.h>
+#include<stdbool.h>
+
+void main(){
+    int size;
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+    int arr[size];
+
+    printf("Enter the Elements of Array: \n");
+    for (int i = 0; i < size; i++)
+    {
+        printf("Enter the %d Element of Array: ", i);
+        scanf("%d", &arr[i]);
+    }
+    
+    int temp[size], index = 0;
+    bool added;
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < size; j++)
+        {
+            if (temp[j] == arr[i])
+            {
+                added = true;
+                break;
+            }
+            else
+            {
+                added = false;
+            }
+
+        }
+        if (!added){
+            temp[index] = arr[i];
+            index++;
+        }
+
+    }
+    printf("All the unique elements are: \n");
+    for (int i = 0; i < index; i++)
+    {
+        printf("%d\n", temp[i]);
+    }
+    
+
+}----------------------------------------
+ 
+ 
+ 
+//  5. Write a program in C to count the frequency of each element of an array.
+
+#include <stdio.h>
+#include<stdbool.h>
+void main()
+{
+    int size;
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+    int arr[size];
+
+    printf("Enter the Elements of Array: \n");
+    for (int i = 0; i < size; i++)
+    {
+        printf("Enter the %d Element of Array: ", i);
+        scanf("%d", &arr[i]);
+    }
+
+ 
+ 
+    int temp[size], count[size], index = 0;
+    bool notFound = false;
+    for (int i = 0; i < size; i++)
+    {
+        notFound = false;
+        for (int j = 0; j < size; j++)
+        {
+            if (arr[i] != temp[j])
+            {
+                notFound = true;
+            }
+            if (arr[i] == temp[j])
+            {
+                count[j]++;
+                notFound = false;
+                break;
+            }
+    }
+
+    if (notFound){
+        temp[index] = arr[i];
+        count[index] = 1;
+        index++;
+    }
+    
+
+    }
+
+    printf("All the unique elements are: \n");
+    for (int i = 0; i < index; i++)
+    {
+        printf("%d  %d \n", temp[i], count[i]);
+    }
+
+}----------------------------------------
+ 
+ 
+ 
+//  6. Write a program in C for addition of two Matrices of same size.
+
+#include<stdio.h>
+
+const int col, row;
+
+void main(){
+    printf("Enter the size of matrix: \n");
+    printf("Enter the Number of Rows: ");
+    scanf("%d", &row);
+    printf("Enter the Number of Colums: ");
+    scanf("%d", &col);
+
+    int mat1[row][col], mat2[row][col];
+        
+    printf("Enter the Elements of Matrix 1: ");
+    for (int r = 0; r < row; r++)
+    {
+        for (int c = 0; c < col; c++)
+        {
+            printf("Enter the Element of index row %d and column %d: ", r, c);
+            scanf("%d", &mat1[r][c]);
+        }
+        
+    }
+
+    printf("Enter the Elements of Matrix 2: ");
+    for (int r = 0; r < row; r++)
+    {
+        for (int c = 0; c < col; c++)
+        {
+            printf("Enter the Element of index row %d and column %d: ", r, c);
+                scanf("%d", &mat2[r][c]);
+        }
+    }
+
+
+    printf("Matrix 1 is: \n");
+    for (int r = 0; r < row; r++)
+    {
+        for (int c = 0; c < col; c++)
+        {
+            printf("%d ", mat1[r][c]);
+        }
+        printf("\n");
+    }
+
+
+
+    printf("Matrix 2 is: \n");
+
+    for (int r = 0; r < row; r++)
+    {
+        for (int c = 0; c < col; c++)
+        {
+            printf("%d ", mat2[r][c]);
+        }
+        printf("\n");
+    }
+
+
+
+
+    int finalMatrix[row][col];
+    for (int r = 0; r < row; r++)
+    {
+        for (int c = 0; c < col; c++)
+        {
+            finalMatrix[r][c] = mat1[r][c] + mat2[r][c];
+        }
+    }
+
+
+    printf("Added Matrix is: \n");
+
+    for (int r = 0; r < row; r++)
+    {
+        for (int c = 0; c < col; c++)
+        {
+            printf("%d ", finalMatrix[r][c]);
+        }
+        printf("\n");
+    }
+}----------------------------------------
+ 
+ 
+ 
+// 7. Write a program in C for multiplication of two square Matrices.
+
+#include <stdio.h>
+int main(void)
+{
+    //Declaring the function prototype
+    void squareMatricesMultiply(int nRows, int nCols, int matrix[nRows][nCols], int matrix1[nRows][nCols]);
+    void displayMatrix(int nRows, int nCols, int matrix[nRows][nCols]);
+    //Declaring the variables
+    int rows, columns, num;
+    //Taking the user-input of rows and columns
+    printf("Enter the number of rows and colums you want in the array(seperated by a space):");
+    scanf("%d %d", &rows, &columns);
+    //Declaring the array
+    int arr1[rows][columns], arr2[rows][columns];
+    //Taking the user inputted elements
+    printf("Enter the elements of the 1st 2Darray\n");
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            printf("Enter the element of the row number %d and column number %d of the array: ", i + 1, j + 1);
+            scanf("%d", &arr1[i][j]);
+        }
+    }
+    printf("Enter the elements of the 2nd 2Darray\n");
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            printf("Enter the element of the row number %d and column number %d of the array: ", i + 1, j + 1);
+            scanf("%d", &arr2[i][j]);
+        }
+    }
+    //Displaying the user-inputted matrices
+    printf("First matrix:\n");
+    displayMatrix(rows, columns, arr1);
+    printf("\nSecond matrix:\n");
+    displayMatrix(rows, columns, arr2);
+    //Displaying the matrix after multiplying it with a scalar
+    squareMatricesMultiply(rows, columns, arr1, arr2);
+    printf("\nThe above two matrices after multiplication is:\n");
+    displayMatrix(rows, columns, arr1);
+    return 0;
+}
+//Function defintion
+void squareMatricesMultiply(int nRows, int nCols, int matrix[nRows][nCols], int matrix1[nRows][nCols])
+{
+    //Declaring the variables
+    int row, column;
+    //looping through matrix and multiplying each element by 2
+    for (row = 0; row < nRows; row++)
+    {
+        for (column = 0; column < nCols; column++)
+        {
+            matrix[row][column] *= matrix1[row][column];
+        }
+    }
+}
+//Function definition
+void displayMatrix(int nRows, int nCols, int matrix[nRows][nCols])
+{
+    //Declaring the variables
+    int row, column;
+    //looping through the elements to display each elements
+    for (row = 0; row < nRows; row++)
+    {
+        for (column = 0; column < nCols; column++)
+        {
+            printf("%5i", matrix[row][column]);
+        }
+        printf("\n");
+    }
+}
+----------------------------------------
+ 
+ 
+ 
+//  8. Write a program in C to find transpose of a given matrix
+
+#include <stdio.h>
+
+const int col, row;
+
+void main()
+{
+    printf("Enter the size of matrix: \n");
+    printf("Enter the Number of Rows: ");
+    scanf("%d", &row);
+    printf("Enter the Number of Colums: ");
+    scanf("%d", &col);
+
+    int mat[row][col];
+
+    printf("Enter the Elements of Matrix : \n");
+    for (int r = 0; r < row; r++)
+    {
+        for (int c = 0; c < col; c++)
+        {
+            printf("Enter the Element of index row %d and column %d: ", r, c);
+            scanf("%d", &mat[r][c]);
+        }
+    }
+
+    printf("The Given Matrix is: \n");
+    for (int r = 0; r < row; r++)
+    {
+        for (int c = 0; c < col; c++)
+        {
+            printf("%d ", mat[r][c]);
+        }
+        printf("\n");
+    }
+
+    int transMatrix[row][col];
+    for (int r = 0; r < row; r++)
+    {
+        for (int c = 0; c < col; c++)
+        {
+            transMatrix[c][r] = mat[r][c];
+        }
+    }
+
+    printf("Transpose Matrix is: \n");
+
+    for (int c = 0; c < col; c++)
+    {
+        for (int r = 0; r < row; r++)
+        {
+            printf("%d ", transMatrix[c][r]);
+        }
+        printf("\n");
+    }
+}----------------------------------------
+ 
+ 
+ 

@@ -1,0 +1,372 @@
+// 1. Write a program to make a simple calculator using switch case.
+
+#include <stdio.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+
+void main()
+{
+    while (true)
+    {
+        printf("\n Press 0 to Close the Program \n Press 1 for addition \n Press 2 for Subtraction \n Press 3 for multiplication \n Press 4 for division \n Press 5 to Exponents calculation \n Press 6 for floor division \n Enter ur choice: ");
+        int choice;
+        scanf("%d", &choice);
+        int num1, num2;
+
+        switch (choice)
+        {
+        case 0:
+            exit(0);
+            break;
+
+        case 1:
+            printf("Enter number 1: ");
+            scanf("%d", &num1);
+            printf("Enter number 2: ");
+            scanf("%d", &num2);
+            printf("The sum of the numbers is: %d", num1 + num2);
+            break;
+
+        case 2:
+            printf("Enter number 1: ");
+            scanf("%d", &num1);
+            printf("Enter number 2: ");
+            scanf("%d", &num2);
+            printf("The diffrence of the numbers is: %d", num1 - num2);
+            break;
+
+        case 3:
+            printf("Enter number 1: ");
+            scanf("%d", &num1);
+            printf("Enter number 2: ");
+            scanf("%d", &num2);
+            printf("The product of the numbers is: %d", num1 * num2);
+            break;
+
+        case 4:
+            printf("Enter number 1: ");
+            scanf("%d", &num1);
+            printf("Enter number 2: ");
+            scanf("%d", &num2);
+            printf("The division of the numbers is: %d", num1 / num2);
+            break;
+
+        case 5:
+            printf("Enter base: ");
+            scanf("%d", &num1);
+            printf("Enter power: ");
+            scanf("%d", &num2);
+            int power = pow(num1, num2);
+            printf("The Exponentail of the numbers is: %d", power);
+            break;
+
+        case 6:
+            printf("Enter number 1: ");
+            scanf("%d", &num1);
+            printf("Enter number 2: ");
+            scanf("%d", &num2);
+            int result = floor(num1 / num2);
+            printf("The floor division of the numbers is: %d", result);
+            break;
+
+        default:
+            printf("Invalid Credentails");
+            break;
+        }
+        printf("\n \n #################################################################\n\n");
+    }
+}----------------------------------------
+ 
+ 
+ 
+// 2. Write a program in which the user to type his own ID, if the ID is valid it will ask him to enter his password, if the password is correct the program will print the name of the user, otherwise, the program will print Incorrect Password and if the ID does not exist, the program will print Incorrect ID.[Use Nested Switch case] 
+
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+void main()
+{
+    int id[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    char pass[10][5] = { {'p', 'a', 's', 's', '1'},
+                         {'p', 'a', 's', 's', '2'},
+                         {'p', 'a', 's', 's', '3'},
+                         {'p', 'a', 's', 's', '4'},
+                         {'p', 'a', 's', 's', '5'},
+                         {'p', 'a', 's', 's', '6'},
+                         {'p', 'a', 's', 's', '7'},
+                         {'p', 'a', 's', 's', '8'},
+                         {'p', 'a', 's', 's', '9'},
+                         {'p', 'a', 's', 's', '0'}
+    };
+
+    int user_id;
+    printf("Enter the id: ");
+    scanf("%d", &user_id);
+    bool id_matched = false;
+    int index;
+    for (int i = 0; i < 10; i++)
+    {
+        if (id[i] == user_id)
+        {
+            id_matched = true;
+            index = i;
+            break;
+        }
+    }
+
+    if (!id_matched)
+    {
+        printf("Invalid Id");
+        exit(0);
+    }
+
+    char password[5];
+    printf("Enter your password(Pawword must be of 5 character): ");
+    scanf("%s", &password);
+    for (int i = 0; i < 5; i++)
+    {
+        if (pass[index][i] != password[i])
+        {
+            printf("Password Do not match, Try Again! ");
+            exit(0);
+        }
+    }
+
+    printf("\nWelcome Sir all Details are Successfully matched");
+}----------------------------------------
+ 
+ 
+ 
+// 3. Write a Program to Count Number of Digits in an Integer 
+
+#include<stdio.h>
+
+void main()
+{
+    int number;
+    printf("Enter a Number: ");
+    scanf("%d", &number);
+    int count = 0;
+    while (number != 0)
+    {
+        number = number/10;
+        count++;
+    }
+    printf("The number of digits is: %d", count);
+}----------------------------------------
+ 
+ 
+ 
+// .4. Write a program that will read the elements of a one - dimensional array, then compares the elements and finds which are the largest two elements in a given array .
+
+#include <stdio.h>
+
+void main()
+{
+    int size;
+    printf("Enter the size of array: ");
+    scanf("%d", &size);
+    int arr[size];
+    printf("\nEnter the elements of array: ");
+    for (int i = 0; i < size; i++)
+    {
+        printf("\nEnter the element of %d index: ", i);
+        scanf("%d", &arr[i]);
+    }
+
+    // Comaprision of array elements
+    int large1 = 0, large2 = 0;
+    for (int i = 0; i < size; i++)
+    {
+        if (i == 0)
+        {
+            large1 = arr[i];
+            continue;
+        }
+        if (i == 1)
+        {
+            if (arr[i] > large1)
+            {
+                large2 = large1;
+                large1 = arr[i];
+            }
+            else
+            {
+                large2 = arr[i];
+            }
+            continue;
+        }
+
+        if (arr[i] > large1)
+        {
+            large2 = large1;
+            large1 = arr[i];
+        }
+        else if (arr[i] > large2)
+        {
+            large2 = arr[i];
+        }
+    }
+
+    printf("The largest two numbers are: %d and %d", large1, large2);
+}----------------------------------------
+ 
+ 
+ 
+// 5. Write a program that will take a number as input from users to delete and delete that element from the array in case it is present or print appropriate message if not present .
+#include <stdio.h>
+#include<stdbool.h>
+#include<stdlib.h>
+
+void main()
+{
+    int size;
+    printf("Enter the size of array: ");
+    scanf("%d", &size);
+    int arr[size];
+    printf("\nEnter the elements of array: ");
+    for (int i = 0; i < size; i++)
+    {
+        printf("\nEnter the element of %d index: ", i);
+        scanf("%d", &arr[i]);
+    }
+
+//  find deleting element
+    bool delete = false;
+    int number, position;
+    printf("Enter a number to check and delete: ");
+    scanf("%d", &number);
+    for (int i = 0; i < size; i++)
+    {
+        if(arr[i] == number)
+        {
+            delete = true;
+            position = i;
+            break;
+        }
+    }
+
+    if (!delete)
+    {
+        printf("%d is not the element of array.", number);
+        exit(0);
+    }
+
+    // shifting other elements 
+    for (int i = position; i < size; i++)
+    {
+        arr[i] = arr[i+1];
+        // arr[size] = 0;
+    }
+
+    printf("The updated array is: ");   
+    for (int i = 0; i < size-1; i++)
+    {
+        printf("%d", arr[i]);
+        printf(" ");
+    }
+    
+    
+}----------------------------------------
+ 
+ 
+ 
+// 6. Write a program reads two integers &swaps their values.[Call by refrence]
+#include<stdio.h>
+
+void swap(int *n1, int *n2)
+{
+    int temp;
+    temp = *n1;
+    *n1 = *n2;
+    *n2 = temp;
+}
+
+void main()
+{
+    int num1 , num2;
+    printf("Enter number 1: ");
+    scanf("%d", &num1);
+    printf("Enter number 2: ");
+    scanf("%d", &num2);
+
+    // Swapping call by refrence
+    swap(&num1, &num2);
+    printf("The values are swapped: \nNumber 1: %d \nNumber 2: %d", num1, num2); 
+
+}----------------------------------------
+ 
+ 
+ 
+// 7. Write a program takes a year as input and finds whether a year is leap year or not .
+
+#include<stdio.h>
+
+void main()
+{
+    long year;
+    printf("Enter the year: ");
+    scanf("%d", &year);
+    // printf(year);
+
+    if (year % 400 == 0)
+    {
+        printf("%d is a leap year.", year);
+    }
+    else if (year % 100 == 0)
+    {
+        printf("%d is not a leap year.", year);
+    }
+    else if( year % 4 == 0)
+    {
+        printf("%d is a leap year.", year);
+    }
+    else
+    {
+        printf("%d is not a leap year.", year);
+    }
+    
+    
+    
+}----------------------------------------
+ 
+ 
+ 
+// 8. Write a Program to Find the Biggest of 3 Numbers using function
+
+#include<stdio.h>
+
+    int biggest(int num1, int num2, int num3)
+{
+    if (num1>num2 && num1>num3) 
+    {
+        return num1;
+    }
+    else if (num2 > num1 && num2 > num3)
+    {
+        return num2;
+    }
+    else
+    {
+        return num3;
+    }
+    
+}
+
+void main()
+{
+    int num1, num2, num3;
+    printf("Enter number 1: ");
+    scanf("%d", &num1);
+    printf("Enter number 2: ");
+    scanf("%d", &num2);
+    printf("Enter number 3: ");
+    scanf("%d", &num3);
+    int big = biggest(num1, num2, num3);
+    printf("The biggest number is %d", big);
+}----------------------------------------
+ 
+ 
+ 

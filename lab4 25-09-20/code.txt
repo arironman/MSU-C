@@ -1,0 +1,319 @@
+
+		Name : Anurag Rai
+
+// 1. Create a structure named student which contains information of student like name, age, gender and marks1, marks2.Use this structure in your program and display information of atleast 2 Students.
+
+
+#include<stdio.h>
+
+struct Student
+{
+    char name[50];
+    int age;
+    char gender[10];
+    int mark1;
+    int mark2;
+};
+
+void main()
+{
+    int records;
+    printf("Enter the number of records u want to enter: ");
+    scanf("%d", &records);
+
+
+//  creating array structure
+    struct Student obj[records];
+    
+//  taking data from user about every structure
+    for (int i = 0; i < records; i++)
+    {
+        printf("\n\n\t\t\t\t\tEnter the Details of Student %d", i+1);
+        printf("\nEnter the Name: ");
+        scanf("%s", &obj[i].name);
+        printf("Enter the age: ");
+        scanf("%d", &obj[i].age);
+        printf("Enter the gender: ");
+        scanf("%s", &obj[i].gender);
+        printf("Enter the Marks 1:");
+        scanf("%d", &obj[i].mark1);
+        printf("Enter the Marks 2:");
+        scanf("%d", &obj[i].mark2);
+
+
+    }
+
+
+// printing data of every structure
+    for (int i = 0; i < records; i++)
+    {
+        printf("\n\n\t\t\t\t\t\tDetails of Student %d", i+1);
+        printf("\n\n\tName: %s", obj[i].name);
+        printf("\n\tAge: %d", obj[i].age);
+        printf("\n\tGender: %s", obj[i].gender);
+        printf("\n\tMarks 1: %d", obj[i].mark1);
+        printf("\n\tMarks 2: %d", obj[i].mark2);
+    }
+}
+----------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+// 2. Create a structure of client that store information of client and display information of client.Store information of atleast 5 clients.[Use structure array]
+
+#include <stdio.h>
+
+struct Client
+{
+    int client_id;
+    char name[50];
+    int age;
+    char gender[10];
+};
+
+void main()
+{
+    int records;
+    printf("Enter the number of Client records u want to enter: ");
+    scanf("%d", &records);
+
+    //  creating array structure of client structure
+    struct Client obj[records];
+
+    //  taking data from user about every structure
+    for (int i = 0; i < records; i++)
+    {
+        printf("\n\n\t\t\t\t\tEnter the Details of Client %d", i + 1);
+        printf("\nEnter the Client Id:");
+        scanf("%d", &obj[i].client_id);
+        printf("Enter the Name: ");
+        scanf("%s", &obj[i].name);
+        printf("Enter the age: ");
+        scanf("%d", &obj[i].age);
+        printf("Enter the gender: ");
+        scanf("%s", &obj[i].gender);
+    }
+
+    // printing data of every structure
+    for (int i = 0; i < records; i++)
+    {
+        printf("\n\n\t\t\t\t\t\tDetails of Clients %d", i + 1);
+        printf("\n\tClient Id: %d", obj[i].client_id);
+        printf("\n\n\tName: %s", obj[i].name);
+        printf("\n\tAge: %d", obj[i].age);
+        printf("\n\tGender: %s", obj[i].gender);
+        }
+}
+----------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+// 3. Create a union same as given in Question .1 and try to display all information.
+
+#include<stdio.h>
+
+union Student
+{
+    char name[50];
+    int age;
+    char gender[10];
+    int mark1;
+    int mark2;
+};
+
+void main()
+{
+    int records;
+    printf("Enter the number of records u want to enter: ");
+    scanf("%d", &records);
+
+    //  creating array union
+    union Student obj[records];
+
+    //  taking data from user about every union
+    for (int i = 0; i < records; i++)
+    {
+        printf("\n\n\t\t\t\t\tEnter the Details of Student %d", i + 1);
+        printf("\nEnter the Name: ");
+        scanf("%s", &obj[i].name);
+        printf("Enter the age: ");
+        scanf("%d", &obj[i].age);
+        printf("Enter the gender: ");
+        scanf("%s", &obj[i].gender);
+        printf("Enter the Marks 1:");
+        scanf("%d", &obj[i].mark1);
+        printf("Enter the Marks 2:");
+        scanf("%d", &obj[i].mark2);
+    }
+
+    // printing data of every union
+    for (int i = 0; i < records; i++)
+    {
+        printf("\n\n\t\t\t\t\t\tDetails of Student %d", i + 1);
+        printf("\n\n\tName: %s", obj[i].name);
+        printf("\n\tAge: %d", obj[i].age);
+        printf("\n\tGender: %s", obj[i].gender);
+        printf("\n\tMarks 1: %d", obj[i].mark1);
+        printf("\n\tMarks 2: %d", obj[i].mark2);
+    }
+}
+----------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+// 4. Create a structure of employee that store information of employee like name, id and date.Date itself is structure contains information like dd, mm, yyyy.Display information of employee.[Use nested structure]
+
+
+#include<stdio.h>
+
+struct date
+{
+    int dd;
+    int mm;
+    int yyyy;
+};
+
+struct Employee
+{
+    int id;
+    char name[50];
+    struct date d;
+};
+
+void main()
+{
+    int records;
+    printf("Enter the number of records u want to enter: ");
+    scanf("%d", &records);
+
+    //  creating array structure
+    struct Employee obj[records];
+
+    //  taking data from user about every structure
+    for (int i = 0; i < records; i++)
+    {
+        printf("\n\n\t\t\t\t\tEnter the Details of Employee %d", i + 1);
+        printf("\nEnter the Employee Id: ");
+        scanf("%d", &obj[i].id);
+        printf("Enter the Name: ");
+        scanf("%s", &obj[i].name);
+        printf("\t\tEnter the Date of Birth \n");
+        printf("Enter the date: ");
+        scanf("%d", &obj[i].d.dd);
+        printf("Enter the Month:");
+        scanf("%d", &obj[i].d.mm);
+        printf("Enter the year:");
+        scanf("%d", &obj[i].d.yyyy);
+    }
+
+    // printing data of every structure
+    for (int i = 0; i < records; i++)
+    {
+        printf("\n\n\t\t\t\t\t\tDetails of Student %d", i + 1);
+        printf("\n\tEmployee Id: %d", obj[i].id);
+        printf("\n\tName: %s", obj[i].name);
+        printf("\n\tDate of Birth: %d-%d-%d ", obj[i].d.dd, obj[i].d.mm, obj[i].d.yyyy);
+    }
+}
+----------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+// 5. Create a structure named address contains information like city, pincode, phone.Pass this structure to function and display information in function.
+
+#include <stdio.h>
+
+struct Address
+{
+    char city[20];
+    char pincode[6];
+    char phone[12];
+};
+
+
+void Address_data(struct Address obj)
+{
+    printf("\n\n\t\t\t\t\t\t\t\tAddress ");
+    printf("\n\n\tCity: %s", obj.city);
+    printf("\n\tPincode: %d", obj.pincode);
+    printf("\n\tPhone: %s", obj.phone);
+}
+
+void main()
+{
+    int records;
+    printf("Enter the number of records u want to enter: ");
+    scanf("%d", &records);
+
+    //  creating array structure
+    struct Address obj[records];
+
+    //  taking data from user about every structure
+    for (int i = 0; i < records; i++)
+    {
+        printf("\n\n\t\t\t\t\tEnter the Details of Student %d", i + 1);
+        printf("\nEnter the City: ");
+        scanf("%s", &obj[i].city);
+        printf("Enter the pincode: ");
+        scanf("%s", &obj[i].pincode);
+        printf("Enter the phone: ");
+        scanf("%s", &obj[i].phone);
+    }
+
+    // printing data of every structure
+    for (int i = 0; i < records; i++)
+    {
+        Address_data(obj[i]);
+    }
+}
+----------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+// 6. Create a structure named distance that stores inch and feet.Display sum of two distance.
+
+
+#include <stdio.h>
+
+struct Distance
+{
+    int inch;
+    int feet;
+};
+
+void sum(struct Distance D1, struct Distance D2 )
+{
+    printf("\n\n\t\t\t\t\tThe Sum of the Distance 1 and Distance 2 is: ");
+    printf("\n\tInches: %d", D1.inch+D2.inch);
+    printf("\n\tFeets: %d", D1.feet+D2.feet);
+}
+
+void main()
+{
+ 
+    //  creating array structure
+    struct Distance obj[2];
+
+    //  taking data from user about every structure
+    for (int i = 0; i < 2; i++)
+    {
+        printf("\n\n\t\t\t\t\tEnter the Distance %d", i + 1);
+        printf("\nEnter the inch: ");
+        scanf("%d", &obj[i].inch);
+        printf("Enter the feet: ");
+        scanf("%d", &obj[i].feet);
+        }
+
+    // printing data of every structure
+    for (int i = 0; i < 2; i++)
+    {
+        printf("\n\n\t\t\t\t\t\tDetails of Distance %d", i + 1);
+        printf("\n\n\tInch: %d", obj[i].inch);
+        printf("\n\tFeet: %d", obj[i].feet);
+    }
+    sum(obj[0], obj[1]);
+}
+----------------------------------------------------------------------------------------------------
+ 
+ 
+ 

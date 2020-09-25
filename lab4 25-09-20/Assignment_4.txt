@@ -1,0 +1,22 @@
+Programming in C and CPP
+Assignment 4
+
+Date : 25/9/2020
+
+ 
+
+1. Create a structure named student which contains information of student like name,age,gender and marks1,marks2.Use this structure in your program and display information of atleast 2 Students.
+
+2. Create a structure of client that store information of client and display information of client .Store information of atleast 5 clients.[Use structure array]
+
+3. Create a union same as given in Question.1 and try to display all information.
+
+4. Create a structure of employee that store information of employee like name, id and date.Date itself is structure contains information like dd,mm,yyyy. Display information of employee .[Use nested structure]
+
+5. Create a structure named address contains information like
+city,pincode, phone.Pass this structure to function and display information in
+function.
+
+6. Create a structure named distance that stores inch and feet. Display sum of two
+distance .
+

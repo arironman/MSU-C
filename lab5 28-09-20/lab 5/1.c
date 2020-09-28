@@ -1,0 +1,16 @@
+// 1.What is output of following program.
+
+
+#include <stdio.h>
+int main()
+{
+    int  *p;
+    int var = 10;
+    p= &var;
+    printf("Value of variable var is: %d", var);
+    printf("\nValue of variable var is: %d", *p);
+    printf("\nAddressof variable var is: %p", &var);
+    printf("\nAddress of variable var is: %p", p);
+    printf("\nAddress of pointer p is: %p", &p);
+    return 0;
+    }
